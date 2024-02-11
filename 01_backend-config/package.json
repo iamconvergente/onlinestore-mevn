@@ -1,19 +1,22 @@
 {
-	"type": "module",
 	"scripts": {
-		"dev": "npx tsm -r src/app.ts"
+		"dev": "npx tsc -w ./src/app.ts --outDir ./dist",
+		"build:dev": "nodemon ./dist/app.js",
+		"start": "pnpm run dev && pnpm run build:dev"
 	},
 	"dependencies": {
 		"cors": "^2.8.5",
 		"dot-env": "^0.0.1",
 		"env-vars": "^0.5.0",
 		"express": "^4.18.2",
-		"nodemon": "^3.0.3",
-		"tsm": "^2.3.0"
+		"nodemon": "^3.0.3"
 	},
 	"devDependencies": {
+		"@swc/core": "^1.4.0",
 		"@types/cors": "^2.8.17",
 		"@types/express": "^4.17.21",
-		"@types/node": "^20.11.17"
+		"@types/node": "^20.11.17",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.3.3"
 	}
 }
